@@ -577,9 +577,7 @@ abstract class Pawn(val world: World) : Entity() {
 
             blockBuffer.faceDegrees = (Math.atan2(degreesX, degreesZ) * 325.949).toInt() and 0x7ff
         } else if (entityType.isNpc) {
-            val faceX = (face.x shl 1) + 1
-            val faceZ = (face.z shl 1) + 1
-            blockBuffer.faceDegrees = (faceX shl 16) or faceZ
+            blockBuffer.faceDegrees = (face.x shl 16) or face.z
             blockBuffer.faceInstant = instant
         }
 
